@@ -10,3 +10,5 @@ To run:
 ```bash
 pnpm server:start
 ```
+
+> Built with [Zed Editor](https://zed.dev)
