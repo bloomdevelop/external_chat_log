@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="A experiment made by Bloom Perez" />
+        <title>External Chat Log Experiment</title>
+        <link rel="stylesheet" href="../public/style.css" />
+    </head>
+
+    <body>
+        <main class="container">
+            <h1>"External Chat Logs" Experiment</h1>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <p>Just an experiment for Roblox itself just for fun</p>
+            <hr />
+            <h2>How to use this?</h2>
+            <p>
+                Send a api request at <code>/sendMessage</code> endpoint with
+                following format:
+            </p>
+            <pre>
+{
+    "username": "RobloxUser123"
+    "content": "Hello World",
+    "experience_id": "1234567890"
+}
+</pre
+            >
+            <p>And it will be sent to the database accordingly.</p>
+            <blockquote>
+                Please note that only use if you're using via Studio (e.g.
+                Roblox places/experience), never abuse with the api other than
+                that
+            </blockquote>
+            <h1>Logs</h1>
+            <blockquote>
+                Note: You must reload a page to see the updated logs since I
+                can't do reactivity in html sadly
+            </blockquote>
+            <noscript>
+                <div class="noscript-warning">
+                    <h2>Why did you disable JavaScript? :c</h2>
+                    <p>
+                        Looks like you disabled JavaScript or using NoScript,
+                        the chat logs cannot function without JavaScript. So,
+                        please enable JavaScript via your browser settings or
+                        follow in the following instructions:
+                    </p>
+                    <hr />
+                    <h2>How to enable/allow JavaScript</h2>
+                    <h3>NoScript</h3>
+                    <ul>
+                        <li>
+                            Go into browser's extension (via extension button)
+                        </li>
+                        <li>Click NoScript</li>
+                        <li>
+                            Trust <b>externalchatlog.vercel.app</b>'s script
+                        </li>
+                        <li>
+                            If running on localhost (e.g.
+                            <code>localhost:{port}</code>), please trust the
+                            script like the same way as previous step
+                        </li>
+                        <li>Refresh tab to apply change</li>
+                    </ul>
+                </div>
+            </noscript>
+            <div id="chat-logs"></div>
+        </main>
+        <script defer src="../public/scripts/main.js"></script>
+    </body>
+</html>

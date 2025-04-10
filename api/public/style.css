@@ -1,0 +1,335 @@
+:root {
+    --primary: #0057a3; /* Darkened for better contrast - meets WCAG AA */
+    --secondary: #ad5100; /* Darkened for better contrast */
+    --text: #222222;
+    --background: #f5f5f5;
+    --container-bg: #ffffff;
+    --accent: #ba2e00; /* Darkened for better contrast */
+    --border: #d0d0d0;
+    --code-bg: #1e1e1e; /* Darkened for better contrast */
+    --code-text: #ffffff; /* Brightened for better contrast with code background */
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --error-border: #f5c6cb;
+
+    --base-font-size: 16px;
+    --mobile-font-size: 18px;
+    --heading-scale: 1.2;
+}
+
+@media (prefers-contrast: more) {
+    :root {
+        --primary: #005a9e;
+        --secondary: #a04d00;
+        --text: #000000;
+        --background: #ffffff;
+        --container-bg: #ffffff;
+        --accent: #b22c00;
+        --border: #000000;
+        --code-bg: #000000;
+        --code-text: #ffffff;
+    }
+}
+
+html {
+    box-sizing: border-box;
+
+    /**
+	* Fixes the horrifiying 300ms tap delay
+	* Source: https://developer.chrome.com/blog/300ms-tap-delay-gone-away
+	*/
+    touch-action: manipulation;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Open Sans",
+        "Helvetica Neue",
+        sans-serif;
+    font-size: var(--base-font-size);
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--container-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+code {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+h1 {
+    font-size: 2.24rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        outline 0.2s ease;
+    padding: 0.2rem 0.1rem;
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+    text-decoration: underline;
+    border-radius: 2px;
+}
+
+:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+}
+
+pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+}
+
+blockquote {
+    display: flex;
+    align-items: center;
+    border-left: 4px solid var(--primary);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    background-color: rgba(0, 162, 232, 0.05);
+    border-radius: 0 5px 5px 0;
+}
+
+div#chat-logs {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pill {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-container {
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--container-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.message-container:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.message-container > h3,
+.message-container > p {
+    padding: 0;
+    margin: 0;
+}
+
+.message-container > .message-header {
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.message-header > h1 {
+    font-size: unset;
+    margin-bottom: 0;
+    color: var(--text);
+    border: none;
+    font-weight: 600;
+}
+
+/* <noscript> Styling */
+.noscript-warning {
+    margin: 1.5rem 0;
+    background: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-border);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.noscript-warning > hr {
+    border: 0;
+    border-top: 1px solid var(--error-border);
+    margin: 1rem 0;
+}
+
+/* Responsive design for medium/small form factors */
+@media (max-width: 768px) {
+    html,
+    body {
+        font-size: var(--mobile-font-size);
+    }
+
+    body {
+        padding: 1rem 0.5rem;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+        margin: 0 auto;
+        width: auto;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    h1 {
+        font-size: calc(var(--mobile-font-size) * 1.7);
+    }
+
+    h2 {
+        font-size: calc(var(--mobile-font-size) * 1.4);
+    }
+
+    h3 {
+        font-size: calc(var(--mobile-font-size) * 1.2);
+    }
+
+    pre {
+        padding: 0.75rem;
+        font-size: calc(var(--mobile-font-size) * 0.95);
+        overflow-x: auto;
+    }
+
+    code {
+        font-size: calc(var(--mobile-font-size) * 0.95);
+    }
+
+    p,
+    li {
+        font-size: var(--mobile-font-size);
+        line-height: 1.7;
+    }
+
+    .message-container {
+        padding: 1.25rem;
+    }
+
+    .pill {
+        font-size: calc(var(--mobile-font-size) * 0.7);
+        padding: 0.15rem 0.4rem;
+        max-width: 150px;
+    }
+}
+
+/*
+* Forced Colors (aka High Contrast)
+* As shown in "https://blogs.windows.com/msedgedev/2024/04/29/deprecating-ms-high-contrast/"
+*
+* For users who are using high contrast via browser, this snippet was suggested
+* by Microsoft Edge team to migrate from old media queries to the new media queries.
+*
+* Biome: "noUnknownMediaFeatureName" was disable since it doesn't know
+*        what "-ms-high-contrast" actually exists.
+*/
+@media (-ms-high-contrast: active), (forced-colors: active) {
+    body {
+        background-color: CanvasText;
+        color: Canvas;
+    }
+
+    .container {
+        background-color: Canvas;
+        color: CanvasText;
+    }
+
+    .message-container {
+        background-color: CanvasText;
+        color: CanvasText;
+    }
+
+    .pill {
+        background-color: CanvasText;
+        color: CanvasText;
+    }
+}

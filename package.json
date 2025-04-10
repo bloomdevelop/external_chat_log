@@ -1,0 +1,31 @@
+{
+  "name": "external_chat_log",
+  "main": "api/index.js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "server:start": "node .",
+    "lint:check": "biome lint ./api",
+    "lint:fix": "biome lint ./api --fix",
+    "lint:fix:unsafe": "biome lint ./api --unsafe",
+    "format:check": "biome format ./api",
+    "format:fix": "biome format ./api --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "@types/express": "^5.0.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "compression": "^1.8.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-minify": "^1.0.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0"
+  }
+}
